@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Flappy Winnie</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-title" content="Flappy Winnie"> 
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <link rel="apple-touch-icon" href="icons/Icon-App-60x60@2x.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="icons/Icon-App-60x60@3x.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="icons/Icon-App-76x76@1x.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="icons/Icon-App-76x76@2x.png">
+        <link rel="apple-touch-icon" sizes="58x58" href="icons/Icon-App-29x29@2x.png">
+        <link rel="shortcut icon" href="icons/Icon-App-29x29@1x.png">
+        <style>
+            body {
+                background: #825705;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                overflow: hidden;
+            }
+            #game {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="game"></div>
+        <script src="lib/phaser.min.js"></script>
+        <script src="js/require.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/sounds.js"></script>
+        <script src="js/pipes.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/scene.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            require('main').run();;
+        </script>
+    </body>
+</html>
