@@ -44,7 +44,7 @@ SoundArray.prototype.getSound = function() {
 }
 
 SoundArray.prototype.isPlaying = function() {
-  return this.getSound().isPlaying();
+  return this.getSound().isPlaying;
 }
 
 SoundArray.prototype.play = function() {
@@ -74,7 +74,7 @@ Sound.prototype.getSound = function() {
 }
 
 Sound.prototype.isPlaying = function() {
-  return this.getSound().isPlaying();
+  return this.getSound().isPlaying;
 }
 
 Sound.prototype.play = function() {
