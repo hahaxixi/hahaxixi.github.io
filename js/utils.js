@@ -20,4 +20,12 @@ exports.overlapAABB = function(left1, top1, right1, bottom1, left2, top2, right2
     bottom1 > top2;
 };
 
+// https://goo.gl/7K7WLu
+exports.unlockAudioContext = function() {
+  var context = global.phaserGame.sound.context;
+  if (context.state === 'suspended') {
+    context.resume();
+  }
+};
+
 });

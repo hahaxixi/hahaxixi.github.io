@@ -2,7 +2,8 @@ require.register('scene.js', function(exports, require, module) {
 'use strict';
 
 var global = require('global');
-var preloadImage = require('utils').preloadImage;
+var utils = require('utils')
+var preloadImage = utils.preloadImage;
 var game = require('game');
 
 var FONT = '"Segoe UI", "Microsoft YaHei"';
@@ -59,6 +60,12 @@ function createButtons() {
   );
   playButton.anchor.setTo(0.5, 0.5);
   playButton.inputEnabled = true;
+
+  // The AudioContext was not allowed to start. It must be resume (or created) after a user gesture on the page. https://goo.gl/7K7WLu
+  playButton.events.onInputUp.add(function() {
+    utils.unlockAudioContext();
+  });
+
   playButton.events.onInputDown.add(function() {
     exports.shift('play');
   });
