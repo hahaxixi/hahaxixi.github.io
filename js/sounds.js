@@ -90,7 +90,7 @@ var sounds = {
   'ouch': {single: true},
   'flap': {single: true},
   'gameover': {single: true},
-  'score': {count: 8}
+  'score': {count: 7}
 }
 
 exports = function(name) {
