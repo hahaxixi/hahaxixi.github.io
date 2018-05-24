@@ -82,7 +82,7 @@ function updateBird() {
 
 function resetBird() {
   bird.body.gravity.y = 0;
-  bird.x = global.phaserGame.width - 100;
+  bird.x = global.phaserGame.width - global.phaserGame.width / 4;
   bird.scale.setTo(1, 1);
 }
 

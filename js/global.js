@@ -3,8 +3,6 @@ require.register('global.js', function(exports, require, module) {
 
 module.exports = {
   settings: {
-    width: 414,
-    height: 736,
     gravity: 1000,
     flap: 300,
     speed: 200,

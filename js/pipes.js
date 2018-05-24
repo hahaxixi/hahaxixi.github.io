@@ -12,22 +12,22 @@ var pipeLayer;
 function PipePair() {
   this.scored = false;
   this.alive = true;
-  this.topPipe = pipeLayer.create(0, 0, 'pipe1');
-  this.bottomPipe = pipeLayer.create(0, 0, 'pipe2');
+  this.topPipe = pipeLayer.create(0, 0, 'pipe');
+  this.bottomPipe = pipeLayer.create(0, 0, 'pipe');
 }
 
 PipePair.prototype.reset = function() {
   var gap = global.phaserGame.rnd.integerInRange(settings.gapMin, settings.gapMax);
+  gap = gap / 2;
   var x = -this.topPipe.width;
-  var y1, y2 = global.phaserGame.height / 2;
-  y2 += global.phaserGame.rnd.integerInRange(50, 150);
-  y1 = y2 - gap - this.topPipe.height;
+  var y = global.phaserGame.height / 2 - 32;
+  y += global.phaserGame.rnd.integerInRange(-50, 50);
 
   this.topPipe.x = x;
-  this.topPipe.y = y1;
+  this.topPipe.y = y - this.topPipe.height - gap;
 
   this.bottomPipe.x = x;
-  this.bottomPipe.y = y2;
+  this.bottomPipe.y = y + gap;
 
   this.scored = false;
 };
@@ -175,8 +175,7 @@ exports.reset = function() {
 };
 
 exports.preload = function() {
-  preloadImage('pipe1');
-  preloadImage('pipe2');
+  preloadImage('pipe');
 };
 
 exports.create = function() {
