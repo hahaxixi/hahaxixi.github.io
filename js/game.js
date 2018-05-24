@@ -194,7 +194,6 @@ exports.reset = function() {
 };
 
 exports.preload = function() {
-  sounds.preload();
   pipes.preload();
 
   preloadImage('winnie');
@@ -203,8 +202,6 @@ exports.preload = function() {
 };
 
 exports.create = function() {
-  sounds.create();
-
   createBackground();
   pipes.create();
   createBird();

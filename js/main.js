@@ -2,16 +2,19 @@ require.register('main.js', function(exports, require, module) {
 'use strict';
 
 var global = require('global');
+var sounds = require('sounds');
 var scene = require('scene');
 
 function preload() {
   global.phaserGame.stage.scaleMode = Phaser.StageScaleMode.SHOW_ALL;
   global.phaserGame.stage.scale.setScreenSize(true);
 
+  sounds.preload();
   scene.preload();
 }
 
 function create() {
+  sounds.create();
   scene.create();
   scene.shift('title');
 }
