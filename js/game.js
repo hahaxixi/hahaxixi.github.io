@@ -156,6 +156,7 @@ function endGame() {
   }
 
   setTimeout(function() {
+    sounds('score').stop();
     sounds('gameover').play();
     onGameOver();
   }, 500);

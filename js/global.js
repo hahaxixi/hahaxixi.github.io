@@ -6,7 +6,7 @@ module.exports = {
     gravity: 1000,
     flap: 300,
     speed: 200,
-    spacing: 250,
+    spacing: 350,
     gapMin: 220,
     gapMax: 260
   }

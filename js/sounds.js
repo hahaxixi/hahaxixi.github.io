@@ -4,11 +4,12 @@ require.register('sounds.js', function(exports, require, module) {
 var global = require('global');
 var preloadAudio = require('utils').preloadAudio;
 
-function SoundArray(name, count) {
+function SoundArray(name, opts) {
   this.sounds = [];
   this.name = name;
-  this.count = count;
+  this.count = opts.count;
   this.currentIndex = 0;
+  this.recentIndex = 0;
 }
 
 SoundArray.prototype.preload = function() {
@@ -32,7 +33,12 @@ SoundArray.prototype.random = function() {
     return;
   }
   var index = Math.floor(Math.random() * this.count);
-  if (index !== this.currentIndex) {
+  if (this.count < 5) {
+    this.currentIndex = index;
+    return;
+  }
+  if (index !== this.currentIndex && index !== this.recentIndex) {
+    this.recentIndex = this.currentIndex;
     this.currentIndex = index;
     return;
   }
@@ -86,11 +92,11 @@ Sound.prototype.stop = function() {
 }
 
 var sounds = {
-  'crash': {single: true},
-  'ouch': {single: true},
-  'flap': {single: true},
-  'gameover': {single: true},
-  'score': {count: 7}
+  'crash': {},
+  'ouch': {},
+  'flap': {},
+  'gameover': {},
+  'score': {count: 21}
 }
 
 exports = function(name) {
@@ -101,10 +107,10 @@ exports.preload = function() {
   var opts;
   for (var name in sounds) {
     opts = sounds[name];
-    if (opts.single)
-      sounds[name] = new Sound(name);
+    if (opts.count)
+      sounds[name] = new SoundArray(name, opts);
     else
-      sounds[name] = new SoundArray(name, opts.count);
+      sounds[name] = new Sound(name);
     sounds[name].preload();
   }
 };
