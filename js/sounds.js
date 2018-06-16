@@ -3,6 +3,7 @@ require.register('sounds.js', function(exports, require, module) {
 
 var global = require('global');
 var preloadAudio = require('utils').preloadAudio;
+var settings = global.settings;
 
 function SoundArray(name, opts) {
   this.sounds = [];
@@ -91,19 +92,21 @@ Sound.prototype.stop = function() {
   this.getSound().stop();
 }
 
-var sounds = {
-  'crash': {},
-  'ouch': {},
-  'flap': {},
-  'gameover': {},
-  'score': {count: 21}
-}
+var sounds;
 
 exports = function(name) {
   return sounds[name];
 };
 
 exports.preload = function() {
+  sounds = {
+    'crash': {},
+    'ouch': {},
+    'flap': {},
+    'gameover': {},
+    'score': {count: settings.scoreSounds}
+  };
+
   var opts;
   for (var name in sounds) {
     opts = sounds[name];

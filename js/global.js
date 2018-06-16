@@ -10,7 +10,8 @@ exports.settings = {
   gapMax: 260,
   canvas: true,
   antialias: false,
-  debug: false
+  debug: false,
+  scoreSounds: 21
 };
 
 });

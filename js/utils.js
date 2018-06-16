@@ -49,7 +49,7 @@ exports.loadSettingsFromUrl = function() {
   for (k in qs) {
     v = qs[k];
     if (!v.length)
-      v = undefined;
+      continue;
     else if (v === 'undefined')
       v = undefined;
     else if (v === 'null')
