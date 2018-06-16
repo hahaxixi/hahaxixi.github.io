@@ -8,7 +8,7 @@ var game = require('game');
 
 var FONT = '"Segoe UI", "Microsoft YaHei"';
 
-var loadingText, title, playButton, restartButton, gameOverSprite, scoreBoardSprite, scoreText, bestScoreText;
+var tipsText, loadingText, title, playButton, restartButton, gameOverSprite, scoreBoardSprite, scoreText, bestScoreText;
 
 function setLoadingText(percent) {
   percent = 89 - percent;
@@ -20,6 +20,18 @@ function setLoadingText(percent) {
 }
 
 function createLoadingScreen() {
+  tipsText = global.phaserGame.add.text(
+    global.phaserGame.width / 2,
+    global.phaserGame.height / 4,
+    '请打开声音',
+    {
+      font: '16px ' + global.font,
+      fill: '#fff',
+      align: 'center'
+    }
+  );
+  tipsText.anchor.setTo(0.5, 0.5);
+
   loadingText = global.phaserGame.add.text(
     global.phaserGame.width / 2,
     global.phaserGame.height / 2,
@@ -163,6 +175,7 @@ var scenes = {
     },
 
     exit: function() {
+      tipsText.visible = false;
       loadingText.visible = false;
     }
   },
