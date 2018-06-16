@@ -194,7 +194,8 @@ function render(flags) {
 }
 
 exports.render = function() {
-  //render(3);
+  if (settings.debug)
+    render(3);
 };
 
 });

@@ -9,7 +9,8 @@ exports.settings = {
   gapMin: 220,
   gapMax: 260,
   canvas: true,
-  antialias: false
+  antialias: false,
+  debug: false
 };
 
 });

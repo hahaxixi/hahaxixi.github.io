@@ -224,6 +224,8 @@ exports.update = function() {
 };
 
 exports.render = function() {
+  if (settings.debug)
+    global.phaserGame.debug.renderSpriteBody(bird);;
   pipes.render();
 };
 
