@@ -5,6 +5,8 @@ var global = require('global');
 var sounds = require('sounds');
 var scene = require('scene');
 
+var settings = global.settings;
+
 function preload() {
   global.phaserGame.stage.scaleMode = Phaser.StageScaleMode.SHOW_ALL;
   global.phaserGame.stage.scale.setScreenSize(true);
@@ -51,7 +53,7 @@ exports.run = function() {
   global.phaserGame = new Phaser.Game(
     width,
     height,
-    Phaser.AUTO,
+    settings.canvas ? Phaser.CANVAS : Phaser.AUTO,
     document.getElementById('game'),
     {
       preload: preload,
@@ -60,7 +62,7 @@ exports.run = function() {
       render: render
     },
     false,
-    false
+    settings.antialias
   );
 };
 
