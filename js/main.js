@@ -4,6 +4,7 @@ require.register('main.js', function(exports, require, module) {
 var global = require('global');
 var sounds = require('sounds');
 var scene = require('scene');
+var utils = require('utils');
 
 var settings = global.settings;
 
@@ -30,6 +31,8 @@ function render() {
 }
 
 exports.run = function() {
+  utils.loadSettingsFromUrl();
+
   var width = 600;
   var height = 800;
 
