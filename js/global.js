@@ -11,7 +11,7 @@ exports.settings = {
   canvas: true,
   antialias: false,
   debug: false,
-  scoreSounds: 24
+  scoreSounds: 27
 };
 
 });
